@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f3f5f4;
+  --foreground: #172a31;
+  --card: #ffffff;
+  --card-foreground: #172a31;
+  --popover: #ffffff;
+  --popover-foreground: #172a31;
+  --primary: #254552;
+  --primary-foreground: #ffffff;
+  --secondary: #e5ecea;
+  --secondary-foreground: #254552;
+  --muted: #e8eeec;
+  --muted-foreground: #61747a;
+  --accent: #dbe7e4;
+  --accent-foreground: #1d3b44;
+  --destructive: #b04240;
+  --border: #cfd9d6;
+  --input: #c7d3d0;
+  --ring: #5c8794;
+  --radius: .45rem;
+}
+
+.dark {
+  --background: #111e23;
+  --foreground: #e8f0ed;
+  --card: #1b2a30;
+  --card-foreground: #e8f0ed;
+  --popover: #1b2a30;
+  --popover-foreground: #e8f0ed;
+  --primary: #bbd8d3;
+  --primary-foreground: #10232a;
+  --secondary: #293b41;
+  --secondary-foreground: #e8f0ed;
+  --muted: #26373d;
+  --muted-foreground: #a4b7b7;
+  --accent: #30484c;
+  --accent-foreground: #edf6f1;
+  --destructive: #ee8580;
+  --border: #385057;
+  --input: #3c565c;
+  --ring: #9fc8c4;
+}
+
+@theme inline {
+  --font-sans: 'Geist Variable', sans-serif;
+  --font-display: 'Archivo', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * .7);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.25);
+  --radius-xl: calc(var(--radius) * 1.7);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html { @apply font-sans; }
+  body { @apply bg-background text-foreground; min-width: 320px; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
