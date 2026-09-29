@@ -45,7 +45,13 @@ npm run lint
 npm test
 ```
 
-The app is intentionally not deployed as part of this code-only deliverable. Before publishing it, configure `TMDB_READ_TOKEN` in the host's server environment and run the Express process to serve both the API and built frontend.
+## Deploy to Vercel
+
+The repository includes `vercel.json` and a Vercel Function in `api/index.mjs`. Vercel builds the Vite frontend, serves the Function for `/api/*`, and sends other page URLs to React Router. Keep the Vercel Framework Preset set to **Vite**.
+
+In the Vercel project settings, add `TMDB_READ_TOKEN` to the **Production** environment (and **Preview** if you use preview deployments). Do not add `PORT`; Vercel manages the Function runtime. Redeploy after adding or changing the token. The token must never be committed or placed in a `VITE_` variable.
+
+After deploying, check `/api/status` returns `{"configured":true}`, open the home page to confirm trending posters load, then test search and movie details. Local development still uses the Express server through `npm run dev`.
 
 ## TMDB credit
 
